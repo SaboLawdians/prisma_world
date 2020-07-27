@@ -1,0 +1,14 @@
+schema: server/schema.graphql
+exec:
+  filename: server/generated.go
+model:
+  filename: model/models_gen.go
+  package: model
+  # Post:
+  #   model: prisma-world/prisma-client.Post
+  # User:
+  #   model: prisma-world/prisma-client.User
+resolver:
+  # Goal: copy&paste from generated file
+  filename: tmp/resolver.go
+  type: Resolver

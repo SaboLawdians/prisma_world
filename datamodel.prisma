@@ -1,0 +1,25 @@
+type User {
+  id: ID! @id
+  name: String!
+  email : String @unique
+  posts : [Post!]!
+}
+
+type Post {
+  id : ID! @id
+  title : String!
+  published : Boolean! @default(value : false)
+  author : User @relation(link : INLINE)
+}
+
+type Query {
+  publishedPosts: [Post!]!
+  post(postId: ID!): Post
+  postsByUser(userId: ID!): [Post!]!
+}
+
+type Mutation {
+  createUser(name: String!): User
+  createDraft(title: String!, userId: ID!): Post
+  publish(postId: ID!): Post
+}
